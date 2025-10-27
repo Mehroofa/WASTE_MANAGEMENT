@@ -12,14 +12,14 @@ def remove_user():
 
         id = input("Enter the id of the user you want to remove: ")
 
-        cursor.execute("select * from waste__collector where id=%s" , (id, ))
+        cursor.execute("select * from waste__collectors where id=%s" , (id, ))
         user=cursor.fetchone()
 
         if not user:
             print("id is not registered!")
             return
         
-        cursor.execute("delete from waste__collector where id=%s",(id, ))
+        cursor.execute("delete from waste__collectors where id=%s",(id, ))
         conn.commit()
         print("User is been removed")
 

@@ -12,14 +12,14 @@ def remove_centers():
 
         name = input("Enter the name of the waste center you want to remove: ")
 
-        cursor.execute("select * from collection_spots where name=%s" , (name, ))
+        cursor.execute("select * from collection__spots where name=%s" , (name, ))
         center=cursor.fetchone()
 
         if not center:
             print("Email is not available!")
             return
         
-        cursor.execute("delete from collection_spots where name=%s",(name, ))
+        cursor.execute("delete from collection__spots where name=%s",(name, ))
         conn.commit()
         print("User is been removed")
 

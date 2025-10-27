@@ -17,7 +17,7 @@ def block_user():
             print("The entered email is not a valid one!")
             return
         
-        cursor.execute("update management_users set status='blocked' where email =%s", (email, ))
+        cursor.execute("update collection_users set status='blocked' where email =%s", (email, ))
         conn.commit()
         print("User is blocked suceesfully!")
         

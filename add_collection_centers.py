@@ -15,7 +15,7 @@ def add_centers():
         waste_type = input("enter the waste type:")
         landmark = input("enter an area nearer to the waste center:")
 
-        cursor.execute("insert into collection_spots (name,location,waste_type,landmark)values(%s,%s,%s,%s)", (name, location, waste_type,landmark, ))
+        cursor.execute("insert into collection__spots (name,location,waste_type,landmark)values(%s,%s,%s,%s)", (name, location, waste_type,landmark, ))
         conn.commit()
         print("New Collection center is added successfully!")
 

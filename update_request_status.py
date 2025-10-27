@@ -11,7 +11,7 @@ def user_complaints(collector_id):
         cursor = conn.cursor()
         
         user_id = input("enter the user's id that requested to collect waste:")
-        cursor.execute("update assign_collections set status='resolved' where user_id=%s and collector_id=%s", (user_id, collector_id, ))
+        cursor.execute("update assign__collections set status='resolved' where user_id=%s and collector_id=%s", (user_id, collector_id, ))
         conn.commit()
         print("Request status is updated successfully")
 

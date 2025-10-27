@@ -35,7 +35,7 @@ def user_complaints():
             if os.path.exists(image_path):
                 img = Image.open(image_path)
                 img_hash = str(imagehash.average_hash(img))
-                cursor.execute("select u_id FROM user_complaint where img-_hash = %s", (img_hash,))
+                cursor.execute("select u_id FROM user__complaints where img-_hash = %s", (img_hash,))
                 if cursor.fetchone():
                     print("Duplicate image is detected! Complaint cannot be filed, SORRY")
                     return
@@ -44,7 +44,7 @@ def user_complaints():
                 image_path = None
 
 
-        cursor.execute("insert into user_complaint(name, location, complaint_area, status, add_image)values(%s,%s,%s,%s,%s)", (name, location, complaint_area, status, add_image))
+        cursor.execute("insert into user__complaints(name, location, complaint_area, status, add_image)values(%s,%s,%s,%s,%s)", (name, location, complaint_area, status, add_image))
         conn.commit()
         print("Your Complaint is filed successfully,Thank you!")
 

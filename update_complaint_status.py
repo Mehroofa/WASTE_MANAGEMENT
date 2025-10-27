@@ -13,7 +13,7 @@ def update_complaint_status():
         u_id= input("enter collector's id:")
         status = input("enter the status(solved/pending):")
 
-        cursor.execute("update user_complaint set status = %s where u_id = %s", (status, u_id))
+        cursor.execute("update user__complaints set status = %s where u_id = %s", (status, u_id))
         conn.commit()
         print("Complaint status is updated successfully!")
 

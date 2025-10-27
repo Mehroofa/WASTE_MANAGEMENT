@@ -17,10 +17,10 @@ def searching_centers():
 
         if choice == '1':
             location = input("enter your location:")
-            cursor.execute("select name,location,waste_type,landmark from collection_spots where location = %s", (location, ))
+            cursor.execute("select name,location,waste_type,landmark from collection__spots where location = %s", (location, ))
         elif choice == '2':
             waste_type = input("enter your waste_type(garbage,food waste,e-waste):")
-            cursor.execute("select name,location,waste_type,landmark from collection_spots where waste_type = %s", (waste_type, ))
+            cursor.execute("select name,location,waste_type,landmark from collection__spots where waste_type = %s", (waste_type, ))
         else:
             print("Invalid choice")
 

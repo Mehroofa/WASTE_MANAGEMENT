@@ -11,7 +11,7 @@ def view_centers():
         )
 
         cursor = conn.cursor()
-        cursor.execute("select * from collection_spots")
+        cursor.execute("select * from collection__spots")
         centers = cursor.fetchall()
 
         print("\n ---Collection Centers are---")

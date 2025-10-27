@@ -12,14 +12,14 @@ def remove_user():
 
         email = input("Enter the email of the user you want to remove: ")
 
-        cursor.execute("select * from management_users where email=%s" , (email, ))
+        cursor.execute("select * from collection_users where email=%s" , (email, ))
         user=cursor.fetchone()
 
         if not user:
             print("Email is not available!")
             return
         
-        cursor.execute("delete from management_users where email=%s",(email, ))
+        cursor.execute("delete from collection_users where email=%s",(email, ))
         conn.commit()
         print("User is been removed")
 

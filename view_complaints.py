@@ -10,7 +10,7 @@ def view_complaints():
             database = "management"
         )
         cursor = conn.cursor()
-        cursor.execute("select name,u_id,location,phno,complaint_area,status,image_hash from user_complaint")
+        cursor.execute("select name,u_id,location,phno,complaint_area,status,image_hash from user__complaints")
         complaints = cursor.fetchall()
 
         if not complaints:

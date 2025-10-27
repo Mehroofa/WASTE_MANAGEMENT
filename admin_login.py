@@ -12,7 +12,7 @@ def admin_login():
         name = input("enter admin's name:")
         password = input("enter admin password:")
 
-        cursor.execute("select * from management_admin where name = %s and password = %s", (name, password, ))
+        cursor.execute("select * from management__admins where name = %s and password = %s", (name, password, ))
         admin = cursor.fetchall()
 
         if admin:

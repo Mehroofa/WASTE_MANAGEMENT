@@ -13,7 +13,7 @@ def login():
         email = input("enter your email_id:").strip()
         password = input("enter your password:").strip()
 
-        cursor.execute("select * from management_users where email=%s and password=%s", (email, password, ))
+        cursor.execute("select * from collection_users where email=%s and password=%s", (email, password, ))
         users = cursor.fetchone()
 
         if users:

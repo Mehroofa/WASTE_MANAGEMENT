@@ -14,7 +14,7 @@ def collector_login():
         email = input("enter your email-id:").strip()
         password = stdiomask.getpass("enter your pass to log:").strip()
 
-        cursor.execute("select * from waste__collector where id=%s and email=%s and password=%s",(id, email, password, ))
+        cursor.execute("select * from waste__collectors where id=%s and email=%s and password=%s",(id, email, password, ))
         collector = cursor.fetchone()
 
         if collector:

@@ -14,28 +14,27 @@ def signup():
 
         name = input("Enter your name: ")
         password = stdiomask.getpass("Enter your password: ") #this will hide your password 
-        email = input("Enter your email: ")
-
+        
         pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
         if not re.match(pattern, email):
             print("Your email is an invalid one!")
             return
-
+        email = input("Enter your email: ")
         place = input("Enter your place: ")
         address = input("Enter your address: ")
 
         # Checking if entered email_id is already existing
 
-        cursor.execute("SELECT * FROM management_admin WHERE email = %s", (email,))
+        cursor.execute("SELECT * FROM management__admins WHERE email = %s", (email,))
         if cursor.fetchone():
             print("Email is already registered.")
         else:
-            cursor.execute("INSERT INTO management_admin (name, email,password, place, address ) VALUES (%s, %s, %s, %s, %s)" , (name,email,password,place,address,  ))
+            cursor.execute("INSERT INTO  management__admins(name, password, email, place, address ) VALUES (%s, %s, %s, %s, %s)" , (name,password,email,place,address, ))
             conn.commit()
             print(" You are signed up successfully!")
 
     except psycopg2.Error as e:
-        print("❌ Error:", e)
+        print(" Error:", e)
     finally:
         if conn:
             cursor.close()

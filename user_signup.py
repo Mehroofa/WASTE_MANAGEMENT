@@ -26,11 +26,11 @@ def signup():
 
         # Checking if entered email_id is already existing
 
-        cursor.execute("SELECT * FROM management_users WHERE email = %s", (email,))
+        cursor.execute("SELECT * FROM collection_users WHERE email = %s", (email,))
         if cursor.fetchone():
             print("Email is already registered.")
         else:
-            cursor.execute("INSERT INTO management_users (name, email, password, address, phno, location, status ) VALUES (%s, %s, %s, %s, %s, %s,%s)" , (name,email,password,address,phno,location,status, ))
+            cursor.execute("INSERT INTO collection_users (name, email, password, address, phno, location, status ) VALUES (%s, %s, %s, %s, %s, %s,%s)" , (name,email,password,address,phno,location,status, ))
             conn.commit()
             print("You are signed up successfully!")
 

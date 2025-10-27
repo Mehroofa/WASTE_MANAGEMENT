@@ -30,16 +30,16 @@ def signup():
 
         # Checking if entered email_id is already existing
 
-        cursor.execute("SELECT * FROM waste__collector WHERE email = %s", (email,))
+        cursor.execute("SELECT * FROM waste__collectors WHERE email = %s", (email,))
         if cursor.fetchone():
             print("Email is already registered.")
         else:
-            cursor.execute("INSERT INTO waste__collector (id, name, email, password, place, phno) VALUES (%s, %s, %s, %s, %s,%s)" , (id,name,email,password,place, phno ))
+            cursor.execute("INSERT INTO waste__collectors (id, name, email, password, place, phno) VALUES (%s, %s, %s, %s, %s,%s)" , (id,name,email,password,place, phno ))
             conn.commit()
             print(" You are signed up successfully!")
 
     except psycopg2.Error as e:
-        print("❌ Error:", e)
+        print(" Error:", e)
     finally:
         if conn:
             cursor.close()

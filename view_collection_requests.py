@@ -11,7 +11,7 @@ def view_collection_requests(collector_id):
         )
         cursor = conn.cursor()
 
-        cursor.execute("select name,user_id,waste_type,location,landmark,status from assign_collections where collector_id = %s",(collector_id, ))
+        cursor.execute("select name,user_id,waste_type,location,landmark,status from assign__collections where collector_id = %s",(collector_id, ))
         requests = cursor.fetchall()
 
 
@@ -23,7 +23,7 @@ def view_collection_requests(collector_id):
             print(tabulate(requests,headers,tablefmt="grid"))
 
     except psycopg2.Error as e:
-        print("❌ Error:", e)
+        print("Error:", e)
     finally:
         if conn:
             cursor.close()

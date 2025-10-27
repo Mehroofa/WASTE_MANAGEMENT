@@ -25,14 +25,14 @@ def complaints_with_images():
         image_hash = str(imagehash.average_hash(img))
 
         #to check if the hash is already existing
-        cursor.execute("select name from complaints where image_hash=%s", (image_hash, ))
+        cursor.execute("select name from user__complaints where image_hash=%s", (image_hash, ))
         duplicate = cursor.fetchall()
 
         if duplicate:
             print("Duplicate image detected! No new complaint filed!")
 
         #if no duplicates recieved insert new complaint with image
-        cursor.execute("insert into complaints (complaint_area,image_hash)values(%s,%s)",( complaint_area, image_hash))
+        cursor.execute("insert into user__complaints (complaint_area,image_hash)values(%s,%s)",( complaint_area, image_hash))
         conn.commit()
         print("Complaint filed successfully!!")
 
